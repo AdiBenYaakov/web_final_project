@@ -1,0 +1,315 @@
+/* =========================
+   1. RESET & BASE (יסודות)
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+    direction: rtl; 
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================
+   2. LAYOUT HELPERS (מבנה כללי)
+========================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================
+   3. UNIFIED HEADER & NAV STYLE (ניווט אחיד)
+========================= */
+header {
+    background: linear-gradient(to left, #1b4d3e, #2f7d5c);
+    color: #fff;
+    padding: 16px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.logo-image { 
+    height: 80px; 
+    width: auto; 
+}
+
+.site-title span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-list a {
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover, 
+.nav-list a.active {
+    background-color: #ffffff !important;
+    color: #1b4d3e !important;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   4. PROFILE HERO (אזור המשתמש הראשי)
+========================= */
+.profile-hero {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(47, 125, 92, 0.05);
+}
+
+.profile-hero-row {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-hero-text h2 { color: #1b4d3e; font-size: 28px; margin-bottom: 8px; }
+
+.profile-stats {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stat-pill {
+    background: #f3fbf7;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    border: 1px solid #dceae3;
+}
+
+/* =========================
+   5. PLANNING CARDS (הטיול הבא והקודם)
+========================= */
+.trips-planning-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.next-trip-card, .previous-trip-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.next-trip-card { border: 2px solid #e8f4ef; }
+.previous-trip-card { border: 2px solid #f0f0f0; }
+
+.next-trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.trip-date-badge {
+    background: #2f7d5c;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.trip-date-badge.gray { background: #6c757d; }
+
+.next-trip-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* =========================
+   6. PROFILE DETAILS GRID (פרטים, העדפות, היסטוריה)
+========================= */
+.profile-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.profile-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.section-head {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.section-head h3 { color: #1b4d3e; font-size: 19px; }
+.hint { font-size: 12px; color: #888; }
+
+.dl-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    padding: 12px 15px;
+    background: #fcfdfe;
+    border-radius: 12px;
+    border: 1px solid #f0f4f8;
+    margin-bottom: 8px;
+}
+
+.profile-dl dt { font-weight: 700; color: #1b4d3e; }
+.profile-dl dd { color: #555; }
+
+.prefs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.pref-box { background: #fcfdfe; padding: 15px; border-radius: 15px; border: 1px solid #f0f4f8; }
+.meta-item { font-size: 11px; background: #fff; border: 1px solid #dde3ee; padding: 4px 10px; border-radius: 8px; font-weight: 600; margin-left: 5px; }
+
+.history-full { grid-column: 1 / -1; }
+.history-item {
+    padding: 15px;
+    border-right: 4px solid #2f7d5c;
+    background: #fcfdfe;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 12px;
+}
+
+.history-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+
+/* =========================
+   7. COMPONENTS (כפתורים ורכיבים)
+========================= */
+.btn {
+    font-family: inherit;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.btn-primary { background: #2f7d5c; color: #fff; }
+.btn-outline { background: transparent; border: 1px solid #2f7d5c; color: #2f7d5c; }
+
+.btn-primary-alt, .btn-secondary-alt {
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 13px;
+    border: 2px solid;
+    transition: 0.3s;
+}
+
+.btn-primary-alt { border-color: #2f7d5c; color: #2f7d5c; }
+.btn-primary-alt:hover { background: #2f7d5c; color: #fff; }
+
+.btn-secondary-alt { border-color: #6c757d; color: #6c757d; }
+.btn-secondary-alt:hover { background: #6c757d; color: #fff; }
+
+/* =========================
+   8. UNIFIED FOOTER STYLE (פוטר אחיד)
+========================= */
+footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #dde3ee;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-content ul { list-style: none; display: flex; gap: 20px; }
+.footer-content a { color: #2f7d5c; text-decoration: none; }
+
+/* =========================
+   9. RESPONSIVENESS (רספונסיביות)
+========================= */
+@media (max-width: 900px) {
+    .trips-planning-row, 
+    .profile-sections-grid { grid-template-columns: 1fr; }
+    .history-full { grid-column: auto; }
+    .dl-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@media (max-width: 768px) {
+    .header-top { flex-direction: column; text-align: center; }
+    .nav-list { gap: 8px; margin-top: 10px; }
+    .profile-hero-row { justify-content: center; text-align: center; }
+}
+
+@media (max-width: 600px) {
+    .footer-content { flex-direction: column; text-align: center; }
+    .prefs-grid { grid-template-columns: 1fr; }
+}

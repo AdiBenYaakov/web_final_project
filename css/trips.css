@@ -1,0 +1,286 @@
+/* =========================
+   1. RESET & BASE (יסודות האתר)
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Heebo', Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+    direction: rtl; /* עברית */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================
+   2. UNIFIED HEADER & NAV STYLE (ניווט אחיד)
+========================= */
+header {
+    background: linear-gradient(to left, #1b4d3e, #2f7d5c);
+    color: #fff;
+    padding: 16px 0;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.logo-image { 
+    height: 80px; 
+    width: auto; 
+}
+
+.site-title span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-list a {
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover, 
+.nav-list a.active {
+    background-color: #ffffff !important;
+    color: #1b4d3e !important;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   3. PAGE LAYOUT GRID (פריסת עמוד רשימת טיולים)
+========================= */
+.page-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 40px;
+}
+
+.page-title { 
+    grid-column: 1 / -1; 
+    margin-bottom: 20px; 
+}
+
+.page-title h1 { color: #1b4d3e; font-size: 28px; }
+
+/* =========================
+   4. SIDEBAR FILTERS 
+========================= */
+.filters {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    border-top: 4px solid #2f7d5c;
+}
+
+.filters h2 { font-size: 18px; margin-bottom: 15px; color: #1b4d3e; }
+
+.field { margin-bottom: 15px; }
+
+label { 
+    display: block; 
+    font-size: 14px; 
+    margin-bottom: 5px; 
+    font-weight: bold;
+    color: #555;
+}
+
+select { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 10px; 
+    border: 1px solid #ddd; 
+    background-color: #fcfdfe;
+    font-family: inherit;
+    outline: none;
+}
+
+/* התיקון כאן: שימוש בשם btn-primary שמתאים ל-HTML */
+.btn-primary { 
+    background: #2f7d5c; 
+    color: #fff; 
+    border: none; 
+    padding: 12px; 
+    width: 100%; /* הכפתור יתפרס על כל רוחב הסיידבר */
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: 0.3s;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-primary:hover { 
+    background-color: #25644a; 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(47, 125, 92, 0.3);
+}
+/* =========================
+   5. TRIPS GALLERY & CARDS (גלריית כרטיסים)
+========================= */
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.trip-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Image & Rating Badge */
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background: #e0e0e0;
+}
+
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.rating-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.star { color: #ffc107; font-size: 14px; }
+
+/* Content & Details */
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.trip-card h3 { color: #1b4d3e; margin-bottom: 8px; font-size: 1.2rem; }
+.trip-card p { font-size: 14px; color: #666; margin-bottom: 15px; }
+
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.tags span { 
+    font-size: 11px; 
+    background: #eaf4ef; 
+    color: #244b3b; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-weight: bold;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.details-link {
+    padding: 8px 24px;
+    font-size: 14px;
+    color: #2f7d5c;
+    border: 2px solid #2f7d5c;
+    border-radius: 999px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.details-link:hover { background: #2f7d5c; color: #fff; }
+
+/* =========================
+   6. UNIFIED FOOTER STYLE (פוטר אחיד)
+========================= */
+footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #dde3ee;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-content ul { list-style: none; display: flex; gap: 20px; }
+.footer-content a { color: #2f7d5c; text-decoration: none; }
+
+/* =========================
+   7. RESPONSIVENESS (רספונסיביות)
+========================= */
+@media (max-width: 900px) {
+    .page-grid { grid-template-columns: 1fr; }
+    .page-title { text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .header-top { flex-direction: column; text-align: center; }
+    .logo-area { align-items: center; }
+}
+
+@media (max-width: 600px) {
+    .footer-content { flex-direction: column; text-align: center; }
+    .trips-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,357 @@
+/* =========================
+   1. RESET & BASE (יסודות)
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+
+body {
+    font-family: 'Heebo', Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+    direction: rtl; /* הבטחת כיוון עברית */
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================
+   2. LAYOUT HELPERS (מבנה כללי)
+========================= */
+.container {
+    width: 90%;
+    max-width: 1200px; /* הגבלה כדי שלא יימרח במסכים ענקיים */
+    margin: 0 auto;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* =========================
+   3. UNIFIED HEADER & NAV STYLE (ניווט אחיד)
+========================= */
+header {
+    background: linear-gradient(to left, #1b4d3e, #2f7d5c);
+    color: #fff;
+    padding: 16px 0;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.logo-image { 
+    height: 80px; 
+    width: auto; 
+}
+
+.site-title span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 100%; /* הבטחת רוחב מלא בשורה השנייה */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-list a {
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-list a:hover, 
+.nav-list a.active {
+    background-color: #ffffff !important;
+    color: #1b4d3e !important;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* חיפוש - ספציפי לדף הבית */
+.nav-search {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.nav-search input {
+    width: 200px;
+    height: 100%;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    padding: 0 14px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.nav-search input::placeholder { color: rgba(255, 255, 255, 0.85); }
+
+.nav-search button {
+    height: 100%;
+    border: 0;
+    padding: 0 14px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-search button:hover { background: #fff; color: #1b4d3e; }
+
+/* =========================
+   4. COMPONENTS (רכיבים חוזרים)
+========================= */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: #2f7d5c;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(47, 125, 92, 0.35);
+}
+
+.btn-primary:hover {
+    background-color: #25644a;
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #2f7d5c;
+    border: 1px solid #2f7d5c;
+}
+
+.btn-outline:hover {
+    background-color: #e8f4ef;
+}
+
+/* =========================
+   5. HOME PAGE SECTIONS (תוכן הדף)
+========================= */
+main { margin-bottom: 32px; }
+
+/* Welcome */
+.welcome {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+.welcome h2 { font-size: 24px; margin-bottom: 12px; color: #1b4d3e; }
+.welcome p { font-size: 18px; margin-bottom: 18px; }
+.welcome-list { margin-bottom: 20px; font-size: 18px; list-style: none; }
+.welcome-list li::before { content: "•"; color: #2f7d5c; margin-left: 8px; font-weight: bold; }
+
+/* Quick Links Cards */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.quick-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    border-top: 4px solid #2f7d5c;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.quick-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); }
+.quick-card h3 { color: #1b4d3e; margin-bottom: 8px; }
+
+/* Weekly Recommended Card (Sidebar) */
+.wrapper {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.card {
+    background-color: #f8fafc;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #dde3ee;
+    display: flex;
+    flex-direction: column;
+}
+
+.image { height: 200px; position: relative; }
+.image img { width: 100%; height: 100%; object-fit: cover; }
+.badge { position: absolute; top: 12px; right: 12px; background: rgba(27, 77, 62, 0.9); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+
+.content { padding: 16px; }
+.content h3 { color: #1b4d3e; margin-bottom: 8px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.meta-item { font-size: 11px; padding: 3px 10px; border-radius: 20px; background-color: #e6f2ec; color: #244b3b; }
+.description { font-size: 14px; margin-bottom: 15px; }
+
+/* Weekly Tip (Bottom) */
+.weekly-tip {
+    padding: 20px 24px;
+    background: linear-gradient(to left, #eaf4ef, #f6fbf9);
+    border-radius: 18px;
+    border: 1px solid #dceae3;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.weekly-tip h3 { color: #1b5e44; margin-bottom: 8px; }
+
+/* =========================
+   SIDE INFO (עיצוב תיבת הדרכה)
+========================= */
+.side-info {
+    margin-top: 24px;
+    padding: 20px;
+    background-color: #f0f7f4; /* רקע ירוק מנטה עדין */
+    border-radius: 12px;
+    border-right: 4px solid #2f7d5c; /* פס הדגשה בצד */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.side-info h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #1b4d3e;
+    font-weight: 700;
+}
+
+.side-info ul {
+    list-style: none; /* ביטול הבולטים הרגילים למראה נקי */
+    padding: 0;
+    margin: 0;
+}
+
+.side-info li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #444;
+    position: relative;
+    padding-right: 20px;
+    line-height: 1.5;
+}
+
+/* הוספת בולט מעוצב אישית */
+.side-info li::before {
+    content: "•";
+    position: absolute;
+    right: 0;
+    color: #2f7d5c;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.side-info li:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================
+   6. UNIFIED FOOTER STYLE (פוטר אחיד)
+========================= */
+footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #dde3ee;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-content ul { list-style: none; display: flex; gap: 20px; }
+.footer-content a { color: #2f7d5c; text-decoration: none; }
+.footer-content a:hover { text-decoration: underline; }
+
+/* =========================
+   7. RESPONSIVE (רספונסיביות גלובלית)
+========================= */
+@media (max-width: 900px) {
+    .layout-grid { grid-template-columns: 1fr; }
+    .quick-links { grid-template-columns: 1fr; }
+    .header-top { flex-direction: column; text-align: center; }
+    .logo-area { align-items: center; }
+}
+
+@media (max-width: 600px) {
+    .nav-list { flex-direction: column; width: 100%; align-items: center; }
+    .nav-search { width: 100%; justify-content: center; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
+/* =========================
+   8. PRINT
+========================= */
+@media print {
+    header, footer, .nav-search, .welcome-actions { display: none; }
+    body { background: #fff; }
+    .container { width: 100%; }
+}
