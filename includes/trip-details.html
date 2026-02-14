@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Trailify | פרטי טיול</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/trip-details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="trip-details-page">
+
+<header>
+    <div class="container header-top">
+        <div class="logo-area">
+            <img src="../images/white_logo.png" alt="Trailify logo" class="logo-image">
+            <div class="site-title">
+                <span>מוצאים את הטיול המתאים לכם בישראל</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+                <li><a href="../index.html">דף הבית</a></li>
+                <li><a href="trips.html" class="active">טיולים מותאמים אישית</a></li>
+                <li><a href="tips.html">טיפים ומידע</a></li>
+                <li><a href="profile.html">הפרופיל שלי</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="container trip-main-grid">
+    <section class="trip-hero">
+        <div class="hero-flex-wrapper">
+            <div class="hero-title-block">
+                <h1 id="trip-name-display">טוען נתונים...</h1>
+                <div class="trip-meta-tags" id="trip-tags-container"></div>
+            </div>
+
+            <div class="hero-interactive-block">
+                <div class="weather-forecast-strip" id="weather-strip">
+                    </div>
+                <button type="button" id="favBtn" class="fav-heart-btn" title="הוספה למועדפים">❤</button>
+            </div>
+        </div>
+    </section>
+
+    <article class="trip-info">
+        <div class="main-image-wrapper">
+            <img src="" alt="תמונת מסלול" class="main-trip-img" id="main-trip-img">
+        </div>
+        <section class="text-block">
+            <h2>על המסלול והטבע באזור</h2>
+            <p id="trip-description">אנא המתינו לטעינת נתוני הטיול...</p>
+        </section>
+    </article>
+
+    <aside class="trip-sidebar">
+        <section class="sidebar-card water-calc">
+            <h3>💧 מחשבון מים </h3>
+            <div class="water-calc-input">
+                <label for="hikers-num">מספר מטיילים:</label>
+                <input type="number" id="hikers-num" min="1" value="1">
+            </div>
+            <p class="calc-res">מומלץ להביא: <span id="water-result">3</span> ליטרים</p>
+        </section>
+
+        <section class="sidebar-card mini-reviews">
+            <h3>⭐ המלצות גולשים</h3>
+            <div class="review-snippet">
+                <strong>מאיה כהן:</strong>
+                <div class="stars-display">★★★★★</div>
+                <p>"מושלם למשפחות!"</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> כובע רחב שוליים</p>
+            </div>
+            <div class="review-snippet">
+                <strong>יובל אברהם:</strong>
+                <div class="stars-display">★★★★☆</div>
+                <p>"מסלול מעולה למטיבי לכת!"</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> נעלי הליכה סגורות</p>
+            </div>
+            <div class="review-snippet">
+                <strong>ליאת גל:</strong>
+                <div class="stars-display">★★★★★</div>
+                <p>"נופים עוצרי נשימה!"</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> קרם הגנה</p>
+            </div>
+            <button class="btn btn-text" id="openModal">לכל ההמלצות</button>
+        </section>
+    </aside>
+
+    <section class="review-section card-frame">
+        <h2>הוסיפו המלצה משלכם</h2>
+        <form id="reviewForm" class="modern-form" action="addRecommendation.php" method="POST">
+            <div class="form-row">
+                <div class="input-group">
+                    <label>שם המסלול:</label>
+                    <input type="text" id="tripNameInput" name="tripName" readonly class="input-locked">
+                </div>
+                <div class="input-group">
+                    <label>שם מלא:</label>
+                    <input type="text" id="userName" name="userName" placeholder="השם שלכם">
+                    <span class="error" id="nameError"></span>
+                </div>
+                <div class="input-group">
+                    <label>תאריך ביקור:</label>
+                    <input type="date" id="visitDate" name="visitDate">
+                    <span class="error" id="dateError"></span>
+                </div>
+                <div class="input-group">
+                    <label>ציוד חובה לדעתך:</label>
+                    <input type="text" id="requiredItem" name="requiredItem" placeholder="למשל: סנדלי מים">
+                    <span class="error" id="itemError"></span>
+                </div>
+                <div class="input-group">
+                    <label>דירוג:</label>
+                    <div class="star-rating-input" id="star-rating">
+                        <span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span>
+                    </div>
+                    <input type="hidden" id="userRating" name="userRating" value="0">
+                    <span class="error" id="ratingError"></span>
+                </div>
+            </div>
+            <div class="input-group">
+                <textarea id="userReview" name="userReview" rows="3" placeholder="איך הייתה החוויה?"></textarea>
+                <div id="charCounter" class="char-counter">תווים: <span id="currentChars">0</span>/100</div>
+                <span class="error" id="reviewError"></span>
+            </div>
+            <div class="form-footer">
+                <button type="submit" class="btn btn-primary">שליחת המלצה</button>
+            </div>
+        </form>
+        <div id="formFeedback"></div>
+    </section>
+</main>
+
+<div id="reviewsModal" class="modal-overlay">
+    <div class="modal-window">
+        <button class="close-modal">&times;</button>
+        <h2>כל המלצות המטיילים</h2>
+        <div class="modal-scroll-area">
+            <article class="full-review-card">
+                <div class="rev-header"><strong>דנה רותם</strong><span class="rev-stars">★★★★★</span></div>
+                <p>הפריחה פשוט מטורפת השנה! המסלול נקי ומסודר מאוד.</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> מצלמה</p>
+                <small>10/11/2025</small>
+            </article>
+            <article class="full-review-card">
+                <div class="rev-header"><strong>עידן כץ</strong><span class="rev-stars">★★★★☆</span></div>
+                <p>היה מאתגר אבל שווה את המאמץ. כדאי להביא הרבה מים.</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> 3 ליטר מים</p>
+                <small>05/12/2025</small>
+            </article>
+            <article class="full-review-card">
+                <div class="rev-header"><strong>מירב דהן</strong><span class="rev-stars">★★★★★</span></div>
+                <p>טיול מושלם לסוף השבוע. הילדים נהנו מאוד!</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> נשנושים לילדים</p>
+                <small>22/11/2025</small>
+            </article>
+            <article class="full-review-card">
+                <div class="rev-header"><strong>איתי לוי</strong><span class="rev-stars">★★★★☆</span></div>
+                <p>אחלה מסלול, סימון שבילים ברור ונוח.</p>
+                <p class="review-item-note"><strong>ציוד חובה:</strong> מפה פיזית</p>
+                <small>14/10/2025</small>
+            </article>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-content">
+        <span>© Trailify – אתר לטיולים מותאמים אישית בישראל</span>
+        <ul>
+            <li><a href="#top">חזרה לראש העמוד</a></li>
+            <li><a href="#" title="לא מומש">צור קשר</a></li>
+            <li><a href="#" title="לא מומש">אודות</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="../js/trip-details.js"></script>
+</body>
+</html>

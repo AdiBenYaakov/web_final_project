@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>Trailify | הפרופיל שלי</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body class="profile-page">
+<header>
+    <div class="container header-top">
+        <div class="logo-area">
+            <img src="../images/white_logo.png" alt="Trailify logo" class="logo-image">
+            <div class="site-title">
+                <span>מוצאים את הטיול המתאים לכם בישראל</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+                <li><a href="../index.html">דף הבית</a></li>
+                <li><a href="trips.html">טיולים מותאמים אישית</a></li>
+                <li><a href="tips.html">טיפים ומידע</a></li>
+                <li><a href="profile.html" class="active">הפרופיל שלי</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <main class="container main-area">
+        <section class="profile-hero">
+            <div class="profile-hero-row">
+                <div class="avatar-wrapper">
+                    <div class="avatar">
+                        <img src="../images/michal.jpg" alt="מיכל לוי">
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="profile-hero-text">
+                    <h2>שלום, מיכל! 👋</h2>
+                    <p class="muted">כאן תוכלי לנהל פרטים בסיסיים, העדפות טיול, היסטוריית טיולים ושפה.</p>
+                    <div class="profile-stats">
+                        <span class="stat-pill">טיולים שבוצעו: <b>12</b></span>
+                        <span class="stat-pill">טיולים שמורים: <b>5</b></span>
+                        <span class="stat-pill">אזור מועדף: <b>צפון</b></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="trips-planning-row">
+            <section class="next-trip-card draggable-trip">
+                <div class="next-trip-header">
+                    <h3>🗓️ הטיול הבא שלי</h3>
+                    <span class="trip-date-badge">בתאריך: 28/02/2026</span>
+                </div>
+                <div class="next-trip-body">
+                    <div class="trip-main-details">
+                        <h4>רכס בשנית</h4>
+                        <p class="muted">מסלול פריחה מרהיב במרכז הגולן</p>
+                    </div>
+                    <a href="trip-details.html?name=רכס בשנית" class="btn-primary-alt">
+                        לפרטים, מזג אוויר וציוד חובה >
+                    </a>
+                </div>
+            </section>
+
+            <section class="previous-trip-card draggable-trip">
+                <div class="next-trip-header">
+                    <h3>🔙 הטיול האחרון שלי</h3>
+                    <span class="trip-date-badge gray">בוצע בתאריך: 10/01/2026</span>
+                </div>
+                <div class="next-trip-body">
+                    <div class="trip-main-details">
+                        <h4>נחל אלכסנדר</h4>
+                        <p class="muted">מסלול מים ירוק ומוצל בעמק חפר</p>
+                    </div>
+                    <a href="trip-details.html?name=נחל אלכסנדר" class="btn-secondary-alt">
+                        הוספת המלצה על הטיול >
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div class="profile-sections-grid">
+            <section class="profile-card">
+                <div class="section-head">
+                    <h3>👤 פרטים אישיים</h3>
+                    <span class="hint">מידע בסיסי לצורך התאמת מסלולים</span>
+                </div>
+                <dl class="profile-dl">
+                    <div class="dl-row">
+                        <dt>שם מלא</dt>
+                        <dd>מיכל לוי</dd>
+                    </div>
+                    <div class="dl-row">
+                        <dt>עיר</dt>
+                        <dd>תל אביב</dd>
+                    </div>
+                    <div class="dl-row">
+                        <dt>אימייל</dt>
+                        <dd><a class="link-text" href="mailto:michal@example.com">michal@example.com</a></dd>
+                    </div>
+                    <div class="dl-row">
+                        <dt>רמת ניסיון</dt>
+                        <dd>בינונית</dd>
+                    </div>
+                </dl>
+                <div class="card-actions">
+                    <button class="btn btn-primary" href="#" title="לא מומש">עריכת פרטים</button>
+                    <button class="btn btn-outline" href="#" title="לא מומש">ייצוא פרופיל</button>
+                </div>
+            </section>
+
+            <section class="profile-card">
+                <div class="section-head">
+                    <h3>⛰️ העדפות טיול</h3>
+                    <span class="hint">משפיע על הסינון וההמלצות</span>
+                </div>
+                <div class="prefs-grid">
+                    <article class="pref-box">
+                        <h4>🗺️ אזור מועדף</h4>
+                        <div class="pill-row">
+                            <span class="meta-item">צפון</span>
+                            <span class="meta-item">מרכז</span>
+                        </div>
+                    </article>
+                    <article class="pref-box">
+                        <h4>💪 דרגת קושי</h4>
+                        <div class="pill-row">
+                            <span class="meta-item">קלה</span>
+                            <span class="meta-item">בינונית</span>
+                        </div>
+                    </article>
+                    <article class="pref-box">
+                        <h4>🔄 סוג מסלול</h4>
+                        <div class="pill-row">
+                            <span class="meta-item">מעגלי</span>
+                            <span class="meta-item">קווי</span>
+                        </div>
+                    </article>
+                    <article class="pref-box">
+                        <h4>🌿 אורך מסלול</h4>
+                        <div class="pill-row">
+                            <span class="meta-item">5-10 ק"מ</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="note">
+                    <strong>💡 טיפ:</strong> עדכון העדפות אחת לתקופה ישפר את התאמת ההמלצות.
+                </div>
+            </section>
+
+            <section class="profile-card history-full">
+                <div class="section-head">
+                    <h3>🕒 היסטוריית טיולים</h3>
+                    <span class="hint">המסלולים שביצעת לאחרונה</span>
+                </div>
+                <div class="trip-history">
+                    <article class="history-item">
+                        <div class="history-top">
+                            <h4>נחל עמוד</h4>
+                            <span class="history-date">01/12/2025</span>
+                        </div>
+                        <div class="pill-row">
+                            <span class="meta-item">צפון</span>
+                            <span class="meta-item">בינונית</span>
+                            <span class="meta-item">6 ק״מ</span>
+                        </div>
+                        <p class="muted">מסלול מוצל חלקית, מומלץ להגיע מוקדם.</p>
+                    </article>
+
+                    <article class="history-item">
+                        <div class="history-top">
+                            <h4>עין גדי – נחל דוד</h4>
+                            <span class="history-date">18/10/2025</span>
+                        </div>
+                        <div class="pill-row">
+                            <span class="meta-item">דרום</span>
+                            <span class="meta-item">קלה</span>
+                            <span class="meta-item">3 ק״מ</span>
+                        </div>
+                        <p class="muted">מסלול קצר עם נקודות עצירה יפות.</p>
+                    </article>
+
+                    <article class="history-item">
+                        <div class="history-top">
+                            <h4>יער בן שמן</h4>
+                            <span class="history-date">05/09/2025</span>
+                        </div>
+                        <div class="pill-row">
+                            <span class="meta-item">מרכז</span>
+                            <span class="meta-item">קלה</span>
+                            <span class="meta-item">4 ק״מ</span>
+                        </div>
+                        <p class="muted">מושלם לפיקניק והליכה רגועה.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+<footer>
+    <div class="container footer-content">
+        <span>© Trailify – אתר לטיולים מותאמים אישית בישראל</span>
+        <ul>
+            <li><a href="#top">חזרה לראש העמוד</a></li>
+            <li><a href="#" title="לא מומש">צור קשר</a></li>
+            <li><a href="#" title="לא מומש">אודות</a></li>
+        </ul>
+    </div>
+</footer>
+
+    <script src="../js/profile.js"></script>
+
+</body>
+</html>
